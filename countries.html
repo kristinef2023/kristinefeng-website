@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places I've Been</title>
+    <style>
+        /* CSS to make the image responsive */
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+        }
+        nav, article, footer {
+            margin: 20px;
+            text-align: center;
+        }
+        /* Styles for the list */
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0; /* Remove default padding */
+            margin-left: 0; /* Align the list to the left */
+            text-align: left; /* Align text to the left */
+        }
+        .grid {
+            display: grid; /* Use grid layout */
+            grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns */
+            gap: 10px; /* Space between columns */
+            align-items: start; /* Align items at the start */
+        }
+        .continent {
+            text-align: left; /* Align headers to the left */
+        }
+        .country {
+            margin: 3px 0; /* Reduced margin between countries */
+        }
+        li {
+            position: relative; /* Position for the pseudo-element */
+            transition: color 0.3s; /* Smooth transition for hover effect */
+        }
+        li:hover {
+            color: #d6006c; /* Change text color on hover */
+        }
+        li::before {
+            content: ''; /* Empty content for the bullet */
+            width: 10px; /* Bullet width */
+            height: 10px; /* Bullet height */
+            background-color: rgba(51, 4, 67, 0.9); /* Color of the bullet */
+            border-radius: 50%; /* Make it circular */
+            display: inline-block; /* Align bullet with text */
+            margin-right: 6px; /* Space between bullet and text */
+            order: -1; /* Move bullet to the left */
+        }
+        h4 {
+            margin-top: 5px; /* Reduced space above continent headers */
+            text-align: left; /* Align headers to the left */
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* Reduce to 2 columns on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <nav>
+            <h3>Countries Explored (10)</h3>
+            <div class="container">
+                <div class="row gy-5 align-items-center">
+                    <div class="col-lg-6">
+                        <img src="./images/Map.jpg" alt="Map of explored countries" class="responsive-image">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">The Americas (3)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">Canada</li>
+                            <li class="country">Mexico</li>
+                            <li class="country">USA</li>
+                            <li class="country">To be determined</li>
+                        </ul>
+                    </div>
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">Caribbean (TBD)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">To be determined</li>
+                            <li class="country">To be determined</li>
+                        </ul>
+                    </div>
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">Europe (6)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">Germany</li>
+                            <li class="country">France</li>
+                            <li class="country">Italy</li>
+                            <li class="country">Malta</li>
+                            <li class="country">Spain</li>
+                            <li class="country">Iceland</li>
+                        </ul>
+                    </div>
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">Middle East (TBD)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">To be determined</li>
+                            <li class="country">To be determined</li>
+                        </ul>
+                    </div>
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">Africa (TBD)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">To be determined</li>
+                            <li class="country">To be determined</li>
+                        </ul>
+                    </div>
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">Oceania (TBD)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">Australia hopefully</li>
+                        </ul>
+                    </div>
+                    <div class="continent">
+                        <h4 style="margin-bottom: 5px;">Asia (1)</h4>
+                        <ul style="margin-top: 0;">
+                            <li class="country">China</li>
+                            <li class="country">To be determined</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <article>
+            <p>
+                I have had the incredible opportunity to travel to various countries. Each place has offered unique experiences and memories that I cherish. 
+                I hope to share my adventures and inspire others to explore the world.
+            </p>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2024 - Kristine Feng - All rights reserved.</p>
+    </footer>
+</body>
+</html>

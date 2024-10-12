@@ -154,6 +154,42 @@
     box-shadow: 0 0 125rem 0.25rem rgba(55, 55, 55, 0.07);
  }
 
+ /* Logo */
+  .logo-container {
+    display: flex; /* Use flexbox to arrange items in a row */
+    align-items: center; /* Center vertically */
+    text-decoration: none; /* Remove underline from the link */
+  }
+    .cat {
+        width: 50px;  /* Width */
+        height: 45px; /* Height */
+        background-image: url(./images/blackcat.gif);
+        background-size: contain; /* Ensures the entire image fits */
+        background-repeat: no-repeat; /* Prevents image repetition */
+        margin-right: -4px; /* Space between cat and text */
+        margin-top: 16px;    /* Move cat down */
+        margin-left: 13px;   /* Move cat right */
+      }
+      
+  
+  #logo-text {
+    margin: 0; /* Remove default margin */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .cat {
+      width: 40px;  /* Smaller size for mobile */
+      height: 40px; /* Smaller size for mobile */
+    }
+  }
+  
+  @media (min-width: 601px) {
+    .cat {
+      width: 50px;  /* Default size for larger screens */
+      height: 50px; /* Default size for larger screens */
+    }
+  }
 
  .colored-btn {
     margin-top: -5px !important; /* Moves the button up */

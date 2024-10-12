@@ -57,7 +57,7 @@
    .main-header .navbar {
     display: flex; /* Ensure flexbox is used */
     align-items: center; /* Center align items vertically */
-    padding: 15px 20px; /* Existing padding */
+    padding: 0px 20px; /* Existing padding */
 }
 
    

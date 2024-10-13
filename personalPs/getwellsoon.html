@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Well Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kapakana&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: antiquewhite;
+            color: rgb(0, 0, 0);
+            font-family: 'Kapakana', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack elements vertically */
+            height: 100vh;
+            margin: 0;
+            overflow: auto; /* Allow scrolling */
+            padding: 20px; /* Add padding around the body */
+        }
+
+        .container {
+            text-align: center; /* Center text */
+            width: 100%; /* Ensure container takes full width */
+            max-width: 600px; /* Limit max width for larger screens */
+        }
+
+        .image {
+            background-image: url('../images/GetWellSoon.jpg');
+            background-size: contain; /* Show full image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            background-position: center; /* Center the image */
+            height: 66.67vh;  /* Adjust height */
+            width: 100%;    /* Full width of the container */
+            border-radius: 10px;
+            margin-bottom: 15px; /* Space between image and text */
+        }
+
+        .description {
+            margin-top: 15px;
+            font-weight: 200;
+            padding: 0 10px; /* Add horizontal padding for mobile */
+        }
+
+        h4.project-title {
+            margin: 10px 0; 
+            font-size: 24px; /* Adjust font size for mobile */
+            font-style: italic;
+        }
+
+        @media (min-width: 600px) {
+            h4.project-title {
+                font-size: 36px; /* Larger font size for wider screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image"></div>
+        <h4 class="project-title">
+            Get Well Soon
+        </h4>
+        <p class="description">
+            A fun digital design project crafted with playful Photoshop creativity.
+            <br><br>
+            Add your content here! Feel free to include more details about the project, share thoughts, or express wishes.
+        </p>
+    </div>
+    <footer style="color: rgb(0, 0, 0); padding: 20px 0; text-align: center;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <p>&copy; 2024 Kristine Feng. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

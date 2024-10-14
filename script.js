@@ -35,3 +35,21 @@ document.querySelectorAll('.anim-elements div').forEach(star => {
     star.style.left = `${randomX}%`;
     star.style.top = `${randomY}%`;
 });
+
+//Contact Form
+function handleSubmit(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const subject = e.target.subject.value;
+    const message = e.target.message.value;
+
+    const mailtoLink = `mailto:kristinef2023@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`)}`;
+
+    // Open the user's default email client
+    window.location.href = mailtoLink;
+
+    // Optionally, reset the form fields
+    e.target.reset();
+}

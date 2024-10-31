@@ -16,7 +16,7 @@ $(window).on("scroll", function() {
 $(document).ready(function() {
     // Typing animation
     new Typed('#type-it', {
-        strings: ['Designer', 'Developer', 'Traveler'],
+        strings: ['Designer', 'Developer', 'Traveler', 'Writer'],
         typeSpeed: 100,
         backSpeed: 50,
         loop: true,

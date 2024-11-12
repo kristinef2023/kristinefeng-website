@@ -19,7 +19,7 @@
             padding: 20px;
             font-family: 'Kapakana', sans-serif;
         }
-        
+
         .container {
             text-align: center;
             width: 100%;
@@ -27,74 +27,74 @@
             margin: 0 auto;
             padding-top: 50px; /* Added padding to the top */
         }
-        
-        /* Image container */
+
         .image {
             position: relative;
             width: auto;
-            height: auto; /* Ensure the height is responsive */
-            max-height: 500px; /* Prevent it from growing too large */
+            height: auto;
+            max-height: 500px;
             margin: 20px 0 15px;
             overflow: hidden;
             border-radius: 10px;
-            padding: 20px; /* Added padding to image container */
+            padding: 20px;
             padding-top: 20px;
-            box-sizing: border-box; /* Ensure padding is included in the element's size */
+            box-sizing: border-box;
         }
-        
+
         .image.front {
-            background-image: url('../images/split.jpeg'); /* Placeholder image */
-            background-size: contain; /* Ensure the image fits without clipping */
-            background-position: center center; /* Keep it centered */
+            background-image: url('../images/split.jpeg');
+            background-size: contain;
+            background-position: center center;
             background-repeat: no-repeat;
-            height: 100%; /* Take up full height of container */
-            padding-top: 20px; /* Add top padding to separate from screen edge */
-            min-height: 400px; /* Ensure the image is at least a certain height */
+            height: 100%;
+            min-height: 400px;
         }
-        
-        /* Video inside container */
+
         .image.inside {
             position: relative;
-            width: auto;
+            width: 100%;
+            max-width: 1000px; /* Increase max width for video container */
             height: auto;
             overflow: hidden;
-            padding: 20px; /* Added padding to video container */
-            box-sizing: border-box; /* Ensure padding is included in the element's size */
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0 auto;
+            aspect-ratio: 16/9; /* Optional: Keep the aspect ratio consistent */
         }
-        
-        .image.inside video {
+
+        .image.inside iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the video covers the container without distortion */
+            object-fit: cover; /* This ensures the video fills the container */
             border-radius: 10px;
         }
-        
+
         .description {
             margin-top: 15px;
             font-weight: 200;
             padding: 0 10px;
         }
-        
+
         h4.project-title {
             margin: 10px 0;
             font-size: 24px;
             font-style: italic;
         }
-        
+
         @media (min-width: 600px) {
             h4.project-title {
                 font-size: 36px;
             }
         }
-        
+
         footer {
             color: rgb(0, 0, 0);
-            padding: 20px 0; /* Consistent padding */
+            padding: 20px 0;
             text-align: center;
-            width: 100%; /* Full width */
-            max-width: 1200px; /* Limit max width */
-            margin: 0 auto; /* Center footer */
-        }        
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -105,18 +105,14 @@
         <h4 class="project-title">
             Split
         </h4>
-        
+
         <p class="description">
             This project was inspired by my love of diners, especially one my friend and I recently stumbled upon that brought back memories of growing up in the Midwest. Large menus always induce anxiety, as I need time to make a choice. I wanted to capture how even simple choices can feel overwhelming, yet fundamental rights, like those on a ballot, shouldn’t be. Growing up in Missouri, I felt compelled to advocate for women’s body autonomy and the right to choose.
-
         </p>
 
-        <!-- Video -->
+        <!-- YouTube Video Embed -->
         <div class="image inside">
-            <video autoplay loop controls>
-                <source src="/Users/kristinefeng/Desktop/Portfolio/split.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe src="https://www.youtube.com/embed/QJ3RzF8_qzE?autoplay=1&loop=1&playlist=QJ3RzF8_qzE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -125,4 +121,3 @@
     </footer>
 </body>
 </html>
-

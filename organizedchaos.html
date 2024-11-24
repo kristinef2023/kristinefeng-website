@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organized Chaos</title>
+  <link rel="stylesheet" href="style.css"> 
+  <style>
+    /* General styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+    }
+    
+    h3 {
+        color: #ffe6ef;
+    }
+
+    .masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .project-container {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 300px;
+        width: 100%;
+        transition: transform 0.3s;
+    }
+
+    .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+    }
+
+    .project-container:hover .image {
+        transform: scale(1.05);
+    }
+
+    /* Hover Effect */
+    a:hover .image {
+        transform: scale(1.05);
+    }
+
+    .project-title {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #ffe6ef;
+        font-weight: 200;
+        font-size: 45px;
+        font-family: 'Kapakana', cursive;
+        font-style: italic;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-container:hover .project-title {
+        opacity: 1;
+    }
+
+    /* Description Styling */
+    .project-description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        text-align: center;
+    }
+
+    .project-container:hover .project-description {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Staggered Animation */
+    .staggered {
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeInUp 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .staggered:nth-child(1) { animation-delay: 0.1s; }
+    .staggered:nth-child(2) { animation-delay: 0.2s; }
+    .staggered:nth-child(3) { animation-delay: 0.3s; }
+    .staggered:nth-child(4) { animation-delay: 0.4s; }
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 1200px) {
+        .container {
+            padding: 0 15px;
+        }
+        .showcase-box {
+            padding: 20px 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .project-container {
+            width: 100%;
+        }
+        .image {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .project-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .image {
+            width: 100%;
+            height: 200px;
+        }
+    }
+  </style>
+</head>
+<body>
+    <main>
+        <section id="showcase" class="section bg-gray" style="padding: 60px 0; overflow-x: hidden;">
+            <!-- Projects Here -->
+            <div class="container" style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+                <div class="section-heading" style="text-align: center; margin-bottom: 20px;">
+                    <h3>Organized Chaos</h3>
+                </div>
+                <div class="showcase-box" style="padding: 20px;">
+                    <div class="masonry-grid">
+                        <!-- Project 1 -->
+                        <div class="project-container staggered">
+                            <a href="/Users/kristinefeng/Desktop/Portfolio/travel.html" target="_blank" aria-label="View Travel Itineraries " style="display: block;">
+                                <div class="image" style="background-image: url('./images/comingsoon.png');">
+                                    <img src="https://via.placeholder.com/450x500/ffb6c1/ffffff?text=Coming+Soon" alt="Preview of Project 1" />
+                                </div>
+                            </a>
+                            <div class="project-description">
+                                This is a travel itinerary project. Explore some exciting destinations!
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-container staggered">
+                            <a href="https://example.com/project2" target="_blank" aria-label="View Coming Soon" style="display: block;">
+                                <div class="image" style="background-image: url('./images/comingsoon.png');">
+                                    <img src="https://via.placeholder.com/450x500/ffb6c1/ffffff?text=Coming+Soon" alt="Preview of Project 2" />
+                                </div>
+                            </a>
+                            <div class="project-description">
+                                Project 2 is about web design and development. A beautiful site for a client.
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-container staggered">
+                            <a href="https://example.com/project3" target="_blank" aria-label="View Coming Soon" style="display: block;">
+                                <div class="image" style="background-image: url('./images/comingsoon.png');">
+                                    <img src="https://via.placeholder.com/450x500/ffb6c1/ffffff?text=Coming+Soon" alt="Preview of Project 3" />
+                                </div>
+                            </a>
+                            <div class="project-description">
+                                This project explores mobile app design with a sleek and user-friendly interface.
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-container staggered">
+                            <a href="https://example.com/project4" target="_blank" aria-label="View Coming Soon" style="display: block;">
+                                <div class="image" style="background-image: url('./images/comingsoon.png');">
+                                    <img src="https://via.placeholder.com/450x500/ffb6c1/ffffff?text=Coming+Soon" alt="Preview of Project 4" />
+                                </div>
+                            </a>
+                            <div class="project-description">
+                                An innovative project focused on e-commerce solutions and optimized user experience.
+                            </div>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="project-container staggered">
+                            <a href="https://example.com/project4" target="_blank" aria-label="View Coming Soon" style="display: block;">
+                                <div class="image" style="background-image: url('./images/comingsoon.png');">
+                                    <img src="https://via.placeholder.com/450x500/ffb6c1/ffffff?text=Coming+Soon" alt="Preview of Project 4" />
+                                </div>
+                            </a>
+                            <div class="project-description">
+                                An innovative project focused on e-commerce solutions and optimized user experience.
+                            </div>
+                        </div>
+
+                         <!-- Project 6 -->
+                         <div class="project-container staggered">
+                            <a href="https://example.com/project4" target="_blank" aria-label="View Coming Soon" style="display: block;">
+                                <div class="image" style="background-image: url('./images/comingsoon.png');">
+                                    <img src="./images/comingsoon.png" alt="Preview of Project 4" />
+                                </div>
+                            </a>
+                            <div class="project-description">
+                                An innovative project focused on e-commerce solutions and optimized user experience.
+                            </div>
+                        </div>
+
+                        <!-- More Projects (just copy and paste the project blocks below) -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kristine Feng. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

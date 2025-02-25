@@ -334,8 +334,44 @@
     .container {
         padding: 0 20px; /* Adds padding to the left and right */
       }
-      
+      @media screen and (max-width: 768px) {
+  .section {
+    padding: 40px 0; /* Reduce padding for small screens */
+  }
+
+  .section-heading h3 {
+    font-size: 2em; /* Slightly smaller headings */
+  }
+
+  .category-selector {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .category-btn {
+    width: 80%; /* Make buttons take up more space */
+    text-align: center;
+  }
+
+  .showcase-box {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Single-column layout */
+    gap: 15px; /* Reduce gap */
+  }
+
+  .showcase-img img {
+    filter: none !important; /* Avoid excessive blur on small screens */
+  }
+
+  .project-name {
+    font-size: 0.9em; /* Make overlay text smaller */
+  }
+
+  .container {
+    padding: 0 10px; /* Reduce padding for better screen fit */
+  }
+}
   </style>
+    
   <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {

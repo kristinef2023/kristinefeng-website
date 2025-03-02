@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddies x La Cantine Case Study</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2e2d0;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+
+        .hero-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+          padding: 20px;
+          box-sizing: border-box;
+          border-radius: 5px;
+      }
+      
+
+        .content {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .abstract {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .read-more-btn:hover {
+            background-color: #e85c5c;
+        }
+
+        .hidden-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px; /* Adds spacing between text and image */
+      }
+      
+      .content-wrapper {
+          display: flex;
+          flex-wrap: wrap; /* Ensures responsiveness */
+          align-items: center;
+          padding: -10px;
+      }
+      
+      .text-content {
+          flex: 1; /* Takes up available space */
+          min-width: 300px;
+      }
+      
+      .image-content img {
+          max-width: 300px; /* Adjust the image width */
+          height: auto;
+          border-radius: 10px; /* Optional: Adds rounded corners */
+          padding-left: 800px;
+      }      
+
+        .image-gallery {
+          max-width: 900px;
+          margin: auto;
+          padding: auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+      }
+      
+      .image-gallery .image-container {
+          position: relative;
+          overflow: hidden; /* Hide content that extends outside the container */
+      }
+      
+      .image-gallery img, .image-gallery video {
+          width: 100%;
+          height: auto;
+          border-radius: 7px;
+      }
+      
+      .image-description {
+          position: absolute;
+          top: 50%; /* Vertically center */
+          left: 50%; /* Horizontally center */
+          transform: translate(-50%, -50%); /* Correct positioning offset */
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          font-size: 14px;
+          padding: 10px;
+          text-align: center;
+          opacity: 0; /* Initially hidden */
+          transition: opacity 0.3s ease;
+      }
+      
+      /* Show the description on hover */
+      .image-container:hover .image-description {
+          opacity: 1;
+      }
+      .disclaimer {
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+    }
+    .disclaimer a {
+        color: #0073e6;
+        text-decoration: none;
+    }
+    .disclaimer a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image">
+        <img src="./buddiesImages/Cover.png" alt="Main Project Image">
+    </div>
+
+    <div class="hero-image">
+      <img src="./buddiesImages/CakeJarBackground.png" alt="Cake Jar background">
+  </div>
+
+
+    <div class="content">
+        <h1>Buddies x La Cantine</h1>
+        <h2>El Pastel Imposible: "The Impossible Cake"</h2>
+        <p class="abstract">
+          A collaboration that redefines dining culture through branding and storytelling.
+
+          Buddies x La Cantine brings together two small businesses to create the Coquito Latte Choco Flan - blending nostalgia with innovation in NYC’s food scene. Rachel Nieves and husband Taylor Nawrocki started Buddies as a pandemic coffee cart and grew it into a viral success, with their Coquito Latte making waves again. La Cantine, opened by French native Ioana Hercberg and chef Raymond Lyons, introduces a comforting cantine concept to Bushwick, filling the gap for daytime dining in an area dominated by nightlife.
+      </p>
+      
+      <button class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+      
+      <div class="hidden-content" id="hiddenContent">
+          <div class="content-wrapper">
+              <div class="text-content">
+                  <h2>The Challenge</h2>
+                  <p>How do you create a restaurant experience that feels both nostalgic and fresh while celebrating the strength and creativity of small businesses?</p>
+                  <p>Like the "Impossible Cake"—a dessert that magically separates into layers while baking—this collaboration aimed to merge distinct identities into a single, harmonious experience. Inspired by a heartfelt moment from the owner of Buddies, who shared the emotional reality of keeping a small business afloat in NYC, this project asked: what if small businesses worked together rather than struggling alone?</p>
+      
+                  <h2>The Strategy</h2>
+                  <p>This collaboration was inspired by the owner of Buddies, who shared the emotional reality of keeping a small business afloat in NYC. 
+                  What if small businesses joined forces to create something new, memorable, and mutually beneficial? 
+                  We focused on playful yet sophisticated visuals, integrating immersive design elements that reflect the heart of both brands.</p>
+      
+                  <h2>Brand Identity</h2>
+                  <p>Developing a strong visual language that balances elegance and fun, staying true to each brand’s unique personality while harmonizing their shared vision.</p>
+      
+                  <h2>Final Outcome</h2>
+                  <p>
+                      "El Impossible" became more than just a dessert—it symbolized the strength of small businesses collaborating to create something unforgettable. 
+                      A Coquito Latte Choco Flan collaboration between Buddies and La Cantine, celebrating creativity, community, and the joy of blending traditions. 
+                      Success means a pitch that inspires—and maybe even a real-life collab.
+                  </p>
+      
+                  <h2>Lessons Learned</h2>
+                  <p>Refining the art of crafting compelling pitches and case studies to champion innovative collaborations in the future.</p>
+              </div>
+          </div>
+              <div class="image-content">
+                  <img src="./buddiesImages/largeChoco.png" alt="Whole Cake Pic">
+              </div>
+          </div>
+      </div>
+      </div>
+      
+
+  <div class="hero-image">
+    <img src="./buddiesImages/BuddiesOwners.png" alt="Buddie's Owners">
+</div>
+
+<div class="image-gallery">
+  <div class="image-container">
+      <img src="./buddiesImages/InsideLC.png" alt="Inside La Cantine">
+      <div class="image-description">Inside La Cantine</div>
+  </div>
+  <!-- Video added alongside the images -->
+  <div class="image-container">
+    <video width="100%" autoplay muted loop>
+        <source src="./buddiesImages/flanVid.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="image-description">Video from La Cantine's Instagram</div>
+</div>
+  <div class="image-container">
+      <img src="./buddiesImages/LaCantineowner.png" alt="La Cantine Owner">
+      <div class="image-description">La Cantine Owner</div>
+  </div>
+
+  <div class="image-container">
+    <img src="./buddiesImages/ownersNews.jpg" alt="Buddie's Owners Holding up News">
+    <div class="image-description">Picture from buddiesbk's Instagram</div>
+</div>
+  
+  <!-- Video added alongside the images -->
+  <div class="image-container" onmouseover="playVideo()">
+    <video id="myVideo" width="100%" autoplay muted loop>
+        <source src="./buddiesImages/BudOwners.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="image-description">Video from intheraw x buddiesbk Instagram</div>
+</div>
+<div class="image-container">
+  <img src="./buddiesImages/buddiesSign.jpg" alt="Buddie's Sign">
+  <div class="image-description">Picture from buddiesbk's Instagram</div>
+</div>
+
+<script>
+    function playVideo() {
+        var video = document.getElementById('myVideo');
+        if (video.muted) {
+            video.muted = false; // Unmute the video on the first hover
+            video.play(); // Ensure the video continues to play after unmuting
+        }
+    }
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+  <img src="./buddiesImages/Artboard 7.png" alt="La Cantine Double Pic">
+</div>
+
+<div class="hero-image">
+  <img src="./buddiesImages/CoffeeWP.png" alt="Coffee WallPaper">
+</div>
+
+
+   <div class="hero-image">
+      <img src="./buddiesImages/BXLC.png" alt="Buddies x La Cantine">
+  </div>
+
+  <div class="image-gallery">
+    <div class="image-container">
+      <img src="./buddiesImages/CFgraphics.png" alt="Png of Chocoflan">
+    </div>
+    <div class="image-container">
+      <img src="./buddiesImages/CFgraphics.png" alt="Png of Chocoflan">
+    </div>
+    <div class="image-container">
+      <img src="./buddiesImages/CFgraphics.png" alt="Png of Chocoflan">
+    </div>
+    </div>
+
+
+  <div class="hero-image">
+    <img src="./buddiesImages/Ingredients.png" alt="Ingredients">
+</div>
+
+    <div class="hero-image">
+      <img src="./buddiesImages/Flan-tastic.png" alt="Flan-tastic">
+  </div>
+
+    <script>
+      function playVideo() {
+        var video = document.getElementById('myVideo');
+        video.muted = false; // Unmute the video
+        video.play(); // Play the video with sound
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("hiddenContent").style.display = "none";
+  });
+  
+        function toggleReadMore() {
+            var content = document.getElementById("hiddenContent");
+            var button = document.querySelector(".read-more-btn");
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                button.textContent = "Show Less";
+            } else {
+                content.style.display = "none";
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+    <footer class="disclaimer">
+      <p>
+          Disclaimer: This is a fictional pitch created for conceptual and creative purposes.  
+          The inspiration for this project comes from publicly available resources, including articles and recipes.  
+          All credit for referenced recipes and articles goes to their respective creators:  
+          <a href="https://www.mylatinatable.com/authentic-chocoflan-recipe/" target="_blank">My Latina Table</a>,  
+          <a href="https://www.delish.com/cooking/recipe-ideas/a41721590/chocoflan-recipe/" target="_blank">Delish</a>,  
+          <a href="https://familiakitchen.com/the-best-flancocho-ever-chocolate-cake-flan/" target="_blank">Familia Kitchen</a>,  
+          <a href="https://thenovicechefblog.com/pumpkin-coquito/" target="_blank">The Novice Chef</a>,  
+          <a href="https://insanelygoodrecipes.com/chocoflan/" target="_blank">Insanely Good Recipes</a>,  
+          <a href="https://www.likealocaltours.com/williamsburg-brooklyn-history/" target="_blank">Like a Local Tours</a>,  
+          <a href="https://www.ediblebrooklyn.com/2019/la-cantine-bushwick-brooklyn/" target="_blank">Edible Brooklyn</a>,  
+          <a href ="https://nypost.com/2025/02/28/lifestyle/brooklyn-coffee-shop-attracts-huge-lines-after-facing-closure/" target="_blank">New York Post</a>
+          and <a href="https://mashable.com/article/tiktok-viral-buddies-coffee-new-york-city" target="_blank">Mashable</a>.  
+  
+          Images used for inspiration in this project are sourced from:  
+          <a href="https://www.mylatinatable.com/authentic-chocoflan-recipe/" target="_blank">My Latina Table</a>,  
+          <a href="https://www.delish.com/cooking/recipe-ideas/a41721590/chocoflan-recipe/" target="_blank">Delish</a>,  
+          and <a href="https://insanelygoodrecipes.com/chocoflan/" target="_blank">Insanely Good Recipes</a>.  
+          This project is not officially affiliated with any of these sources or businesses.
+      </p>
+  </footer>  
+</body>
+</html>

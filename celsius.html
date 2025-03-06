@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsius Party Mixer Edition</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            max-width: 100%; /* Ensures the image does not stretch too wide */
+            height: auto;
+            padding: 20px; /* Adds padding around the hero image */
+            box-sizing: border-box; /* Makes sure the padding is included in the element's total size */
+            margin: 20px 0; /* Adds vertical space between the hero images */
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 90%;
+            display: block;
+            border-radius: 5px;
+            max-width: 100%; /* Makes the image slightly smaller so it's not too "in your face" */
+            margin: 0 auto; /* Centers the image horizontally */
+        }
+        
+        
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #fff;
+            text-align: center;
+        }
+    
+        .content {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .flavor-section {
+            margin: 40px auto;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .flavor-section h2 {
+            color: #FFD700;
+            font-size: 2rem;
+        }
+
+        .flavor-description {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .pairing {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ff007f;
+        }
+        .case-study {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .case-study h1 {
+            font-size: 2.5rem;
+            color: #FFD700;
+        }
+
+        .case-study h2 {
+            font-size: 2rem;
+            color: #FF007F;
+        }
+
+        .case-study p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .read-more-btn {
+            background-color: #FFD700;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .read-more-btn:hover {
+            background-color: #e6c300;
+        }
+
+        .hero-image-container img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .hidden-content {
+            display: none;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .disclaimer a {
+            color: #ff007f;
+            text-decoration: none;
+        }
+
+        .disclaimer a:hover {
+            text-decoration: underline;
+        } 
+    </style>
+</head>
+<body>
+
+        <!-- Case Study Section -->
+        <div class="case-study">
+            <h1>Celsius Party Mixer Edition: Rethinking the Cocktail Mixer Game</h1>
+            <h2>The New Era of Party Mixers</h2>
+            <p>For years, the cocktail mixer landscape has been dominated by the classic combination of Red Bull and vodka, a pairing known for its high energy and quick kick. But as health-conscious consumers seek alternatives that align with a more mindful lifestyle, Celsius is here to shake things up. The Celsius Party Mixer Edition is not just a new flavor; it's a revolution in how we approach the cocktail scene.</p>
+            <button class="read-more-btn" onclick="toggleReadMore('caseStudy')">Learn More</button>
+            <div id="caseStudy" class="hidden-content">
+                <p>Red Bull and vodka have become iconic in party culture, offering a potent combination of caffeine, sugar, and alcohol to keep the energy flowing all night. However, this classic combo comes with concerns about sugar content and the negative effects of artificial ingredients. Celsius is rethinking this traditional pairing by introducing a range of innovative flavors that are not only healthier but also elevate the drinking experience without the crash. Featuring clean, natural ingredients and a refreshing taste, Celsius is the smarter choice for those looking to energize their night while staying true to their health goals.</p>
+                <p>The Celsius Party Mixer Edition takes what people love about cocktail mixers — the ability to mix easily and enhance the flavor profile — but adds a layer of sophistication, making it more than just a typical mixer. With creative flavors like Lychee Glow, Olive Twist, and Espresso Rush, Celsius is offering a fresh alternative to the traditional energy drink and vodka mix. It's a brand that stands for wellness, innovation, and bold flavors, providing consumers with a modern, mindful mixer that aligns with a healthier lifestyle while still bringing the fun and energy to the party.</p>
+            </div>
+        </div>
+    <div class="hero-image">
+        <img src="./celcius/NewThreeBG.png" alt="Celsius Party Mixer Edition">
+        
+        <!-- Wrap content in a container that uses flexbox -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; box-sizing: border-box; color: #fff; text-align: center;">
+        </div>
+    </div>
+
+
+    <div class="hero-image">
+        <img src="./celcius/lycheebackground2.png" alt="Lychee Celsius">
+    </div>
+
+<!-- Flavor 1: Lychee -->
+<div class="flavor-section">
+    <h2>Lychee Glow</h2>
+    <p class="flavor-description">A delicately sweet and floral profile, bringing an exotic touch to your cocktail experience.</p>
+    <p class="pairing">🍸 Pairs Best With: Gin & Champagne</p>
+    <div class="hero-image-container">
+        <img src="./celcius/lycheeCelcius.png" alt="Celsius Lychee Glow">
+    </div>
+    <button class="read-more-btn" onclick="toggleReadMore('lychee')">Discover our love for Lychee!</button>
+    <div id="lychee" class="hidden-content">
+        <p>Lychee has been a favorite in cocktails for centuries, known for its refreshing sweetness that elevates any drink it pairs with. Whether you're sipping a gin and champagne mix or enjoying a chilled summer drink, Lychee is sure to add a touch of exotic flair.</p>
+
+        <h3>✨ Lychee Glow Cocktail Recipe ✨</h3>
+        <ul>
+            <li>1 can Celsius Lychee</li>
+            <li>1.5 oz gin</li>
+            <li>0.5 oz elderflower liqueur</li>
+            <li>0.5 oz fresh lime juice</li>
+            <li>2-3 fresh lychees (or 0.5 oz lychee syrup)</li>
+            <li>Champagne (to top)</li>
+            <li>Ice</li>
+        </ul>
+        <h4>Instructions:</h4>
+        <ol>
+            <li>Fill a cocktail shaker with ice and add gin, elderflower liqueur, lime juice, and lychee syrup.</li>
+            <li>Shake well and strain into a chilled coupe or martini glass.</li>
+            <li>Top with Celsius Lychee for an energizing glow.</li>
+            <li>Finish with a splash of champagne and garnish with a fresh lychee.</li>
+            <li>Enjoy the perfect blend of refreshment and sophistication!</li>
+        </ol>
+    </div>
+</div>
+
+
+    <div class="hero-image">
+        <img src="./celcius/background.png" alt="Lychee Celsius">
+    </div>
+
+    <!-- Flavor 2: Olive -->
+<div class="flavor-section">
+    <h2>Olive Twist</h2>
+    <p class="flavor-description">A smooth, subtly briny twist designed for the most refined palates.</p>
+    <p class="pairing">🥃 Pairs Best With: Vodka & Dry Vermouth</p>
+    <div class="hero-image-container">
+        <img src="./celcius/oliveWhiteBG.png" alt="Celsius Olive Luxe">
+    </div>
+    <button class="read-more-btn" onclick="toggleReadMore('olive')">Experience all of the Olive!</button>
+    <div id="olive" class="hidden-content">
+        <p>Olive provides a unique, sophisticated flavor profile that balances perfectly with a range of premium spirits. The subtle briny notes pair excellently with vodka, dry vermouth, and even tequila for a refreshing, high-class experience.</p>
+
+        <!-- Olive Twist Martini Recipe -->
+        <h3>🍸 Olive Twist Martini</h3>
+        <p><em>A bold and refined take on the classic dirty martini, infused with Celsius Olive for a smooth yet invigorating twist.</em></p>
+        
+        <h4>Ingredients:</h4>
+        <ul>
+            <li>2 oz <strong>Vodka</strong></li>
+            <li>0.5 oz <strong>Dry Vermouth</strong></li>
+            <li>2 oz <strong>Celsius Olive</strong></li>
+            <li>0.5 oz <strong>Olive Brine</strong> (adjust for taste)</li>
+            <li>Ice</li>
+            <li><strong>Garnish:</strong> 3 Green Olives on a skewer</li>
+        </ul>
+
+        <h4>Instructions:</h4>
+        <ol>
+            <li>Fill a mixing glass with ice and add vodka, dry vermouth, Celsius Olive, and olive brine.</li>
+            <li>Stir (or shake for extra chill) until well combined.</li>
+            <li>Strain into a chilled martini glass.</li>
+            <li>Garnish with three green olives on a skewer.</li>
+            <li>Enjoy a perfectly balanced, modern martini with a refined twist.</li>
+        </ol>
+    </div>
+</div>
+
+
+    <div class="hero-image">
+        <img src="./celcius/oliveBG.png" alt="Olive Celsius">
+    </div>
+
+    <div class="hero-image">
+        <img src="./celcius/coffeeBG.png" alt="Celsius Nightlife Chic">
+    </div>
+
+<!-- Flavor 3: Espresso Rush -->
+<div class="flavor-section">
+    <h2>Espresso Rush</h2>
+    <p class="flavor-description">A rich, smooth espresso flavor with hints of vanilla and dark chocolate, offering a bold and energizing experience.</p>
+    <p class="pairing">☕ Pairs Best With: Vodka & Dark Rum</p>
+    <div class="hero-image-container">
+        <img src="./celcius/coffee.png" alt="Celsius Espresso Rush">
+    </div>
+    <button class="read-more-btn" onclick="toggleReadMore('espresso')">Experience the Rush</button>
+    <div id="espresso" class="hidden-content">
+        <p>Espresso Rush combines the smooth, energizing taste of coffee with a sophisticated blend of vanilla and dark chocolate, creating a balanced and bold cocktail base. Pair it with vodka or dark rum for an unforgettable, late-night mix.</p>
+
+        <h3>⚡ Espresso Rush Martini Recipe</h3>
+        <ul>
+            <li>2 oz Vodka</li>
+            <li>1 oz Coffee Liqueur</li>
+            <li>1 oz Celsius Coffee</li>
+            <li>½ oz Simple Syrup</li>
+            <li>Ice</li>
+            <li>3 Coffee Beans (for garnish)</li>
+        </ul>
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Fill a shaker with ice and add vodka, coffee liqueur, Celsius Coffee, and simple syrup.</li>
+            <li>Shake vigorously for about 15 seconds until well-chilled.</li>
+            <li>Strain into a chilled martini glass.</li>
+            <li>Garnish with three coffee beans for the perfect finish.</li>
+            <li>Enjoy your bold and energizing Espresso Rush Martini!</li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="hero-image">
+    <img src="./celcius/coffeebig.png" alt="Celsius Nightlife Chic">
+</div>
+
+    <script>
+        function toggleReadMore(flavor) {
+            var hiddenContent = document.getElementById(flavor);
+            if (hiddenContent.style.display === "none" || hiddenContent.style.display === "") {
+                hiddenContent.style.display = "block";
+            } else {
+                hiddenContent.style.display = "none";
+            }
+        }
+    </script>
+
+    <footer class="disclaimer">
+        <p>
+            Disclaimer: Celsius Party Mixer Edition is a conceptual project and not an official product. Please enjoy responsibly. <a href="#">DrinkSmart.com</a>
+        </p>
+    </footer>
+
+</body>
+</html>

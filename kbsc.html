@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krissy's Bite-Sized Calendar</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --pale-yellow: #F8E8A6;
+      --vintage-blue: #4A6FA5;
+      --warm-brown: #9C6644;
+      --off-white: #F5F1E3;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--off-white);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 100%;
+      margin: 30px auto;
+      background: var(--pale-yellow);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h1 {
+      color: var(--warm-brown);
+      font-weight: 600;
+    }
+
+    p {
+      color: #5A5A5A;
+      font-size: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      background: var(--vintage-blue);
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px 10px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 600;
+      color: white;
+      transition: background 0.3s;
+      border-radius: 8px;
+    }
+
+    .tab.active {
+      background: var(--warm-brown);
+    }
+
+    .content {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .month-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .food-item {
+      text-align: center;
+      background-color: var(--pale-yellow);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .food-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .food-item p {
+      font-size: 14px;
+      color: #5A5A5A;
+      margin-top: 8px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--warm-brown);
+    }
+    .month-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* centers items horizontally */
+        gap: 16px; /* space between items */
+        padding: 16px 0;
+      }
+      
+      .food-item {
+        flex: 1 1 200px; /* flexible sizing, minimum 200px */
+        max-width: 220px;
+        text-align: center; /* centers text under image */
+      }
+      .scroll-gallery {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding: 20px 10px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* hides scrollbar in Firefox */
+      }
+      
+      .scroll-gallery::-webkit-scrollbar {
+        display: none; /* hides scrollbar in WebKit browsers */
+      }
+      
+      .scroll-gallery img {
+        flex: 0 0 auto;
+        width: 220px;
+        height: auto;
+        scroll-snap-align: center;
+        border-radius: 14px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .scroll-gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      }
+      
+      .thank-you {
+        background: #fff7f9;
+        border: 2px dashed #ffb6c1;
+        border-radius: 16px;
+        padding: 20px;
+        margin: 40px auto;
+        width: fit-content;
+        max-width: 90%;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+        font-family: 'Comic Neue', cursive, sans-serif;
+        color: #d14d72;
+      }
+      
+      .thank-you p:first-child {
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: #c33c69;
+      }
+      
+      .thank-you p:not(:first-child) {
+        margin: 6px 0;
+      }
+      .cover-image {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .cover-image img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+      
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Krissy's Bite-Sized Calendar 💋</h1>
+    <p>A retro-inspired Calendar for 2026, designed with love and a hint of nostalgia!</p>
+ 
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(0)">Themed Months</div>
+      <div class="tab" onclick="showTab(1)">Final Product</div>
+    </div>
+
+
+ <!-- Themed Months Content -->
+<div class="content active">
+    <h2>Themed Months</h2>
+    <p>Each month was inspired by a delicious theme — try the featured bites for yourself!</p>
+  
+    <!-- Repeat this block per month -->
+    <div class="month">
+        <h3>January</h3>
+        <p>Breakfast Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Frankel's Delicatessen & Appetizing</p>
+            <img src="./stickCpy/January copy/frankels.png" alt="Frankel's">
+            <p>Start your morning off right with a bagel from Frankel's! Better yet, top it off with some of their delicious cucumber salad!</p>
+          </div>
+          <div class="food-item">
+            <p>Baby Blue's Luncheonette</p>
+            <img src="./stickCpy/January copy/Bblues.png" alt="Baby Blue's Luncheonette">
+            <p>This Greek style diner is serving up breakfast classics with a Mediterranean twist! Highly recommend their Zorba Plate!</p>
+          </div>
+          <div class="food-item">
+            <p>Ceremonia Bakeshop</p>
+            <img src="./stickCpy/January copy/Ceremonia.png" alt="Ceremonia Bakeshop">
+            <p>This breakfast burrito is stuffed with four scrambled eggs, potatos, chorizo, and melty cheddar cheese! Stop by and grab a mochi muffin as well!</p>
+          </div>
+          <div class="food-item">
+            <p>Winson Bakery</p>
+            <img src="./stickCpy/January copy/Winson.png" alt="Winson Bakery">
+            <p>Known for their famous BEC on a scallion pancake, and deservedly so! Make sure you also try their sticky red date cake or their red bean doughnut too!</p>
+          </div>
+          <div class="food-item">
+            <p>La Cabra</p>
+            <img src="./stickCpy/January copy/LaCabra.png" alt="La Cabra">
+            <p>This Cardamom Bun is surely worth the wait here! If they run out the Canele is also a great choice!</p>
+          </div>
+          <div class="food-item">
+            <p>Radio Bakery</p>
+            <img src="./stickCpy/January copy/radiobakery.png" alt="Radio Bakery">
+            <p>If you wake up early enough.. come down to Radio Bakery and make sure you are leaving with their Smoked Salmon Sandwich on everything spice foccacia! </p>
+          </div>
+        </div>
+      </div>
+      
+  
+      <div class="month">
+        <h3>February</h3>
+        <p>Sweet Treats Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Sant Ambroeus</p>
+            <img src="./stickCpy/February copy/SantAmbrose.png" alt="Sant Ambroeus ">
+            <p>Treat yourself like the princess you are with Sant Ambroeus' precious Princessa Cake. Beautiful and delicious!</p>
+          </div>
+          <div class="food-item">
+            <p>Yuan Yang</p>
+            <img src="./stickCpy/February copy/YuanYuan.png" alt="Yuan Yang">
+            <p>Warm up or cool down with the Taro Mochi Pudding served your choice of hot or chilled!</p>
+          </div>
+          <div class="food-item">
+            <p>Hani's Bakery</p>
+            <img src="./stickCpy/February copy/Hani's.png" alt="Hani's Bakery">
+            <p>Your classic PB & J in a cake! Wild blueberries and delicious peanut butter frosting makes for a truly amazing bite!</p>
+          </div>
+          <div class="food-item">
+            <p>Patisserie Vanessa</p>
+            <img src="./stickCpy/February copy/pvanessa.png" alt="Patisserie Vanessa">
+            <p>Dare I say the perfect French pastry? Find one of the best Canele's in the city in the Upper East Side at Vanessa's!</p>
+          </div>
+          <div class="food-item">
+            <p>Luna Cafe & Bakery</p>
+            <img src="./stickCpy/February copy/pumpkinBun.png" alt="Luna Cafe & Bakery">
+            <p>This Pumpkin Bun is not only adorable and delicious, but also a steal! $2 for a bun means we will be back for more...</p>
+          </div>
+          <div class="food-item">
+            <p>La Cantine</p>
+            <img src="./stickCpy/February copy/LaCantine.png" alt="La Cantine">
+            <p>Cake in a jar! We got the hazulnut one, but check their Instagram as their desserts change daily!</p>
+          </div>
+        </div>
+      </div>
+      
+  
+    <div class="month">
+        <h3>March</h3>
+        <p>Pi Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Scarr's Pizza</p>
+            <img src="./stickCpy/March copy/Scarr'sPizza.png" alt="Scarr's Pizza">
+            <p>If you find yourself in LES, find yourself a slice of this delicious Hotboi slice!</p>
+          </div>
+          <div class="food-item">
+            <p>Steve's Authentic Key Lime Pie</p>
+            <img src="./stickCpy/March copy/Steves.png" alt="Steve's Authentic Key Lime Pie">
+            <p>From 3 inches to 10, Steve's got it all! Want it dipped in chocolate.. he's got that too!</p>
+          </div>
+          <div class="food-item">
+            <p>Fini Pizza</p>
+            <img src="./stickCpy/March copy/Fini.png" alt="Fini Pizza">
+            <p>Fini your night off with a delicious slice of this tomato pie! Topped with garlicky bread crumbs... you can't go wrong!</p>
+          </div>
+          <div class="food-item">
+            <p>Pie Corps</p>
+            <img src="./stickCpy/March copy/pieCorps.png" alt="Pie Corps">
+            <p>Want smore? Pie Corps not only offers a scrumptions smore pie, there's cake as well!</p>
+          </div>
+          <div class="food-item">
+            <p>Amore Pizza Café</p>
+            <img src="./stickCpy/March copy/Amores.png" alt="Amore Pizza Café">
+            <p>Can't pick a sauce? Good thing this pie has marinara, vodka, and pesto!</p>
+          </div>
+          <div class="food-item">
+            <p>Petee's Pie Company</p>
+            <img src="./stickCpy/March copy/Petees.png" alt="Petee's Pie Company">
+            <p>Go bananas for Petee's silky banana cream pie! No matter what option you choose, you'll be satisfied!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>April</h3>
+        <p>Vegetarian Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Dialogue Coffee & Flowers</p>
+            <img src="./stickCpy/April copy/CarrotcakeLatte.png" alt="Dialogue Coffee & Flowers">
+            <p>If you find yourself bored at home, bring yourself to this all vegan coffee and flower shop!</p>
+          </div>
+          <div class="food-item">
+            <p>Dun-Well Doughnuts</p>
+            <img src="./stickCpy/April copy/pinkdonut.png" alt="Dun-Well Doughnuts">
+            <p>Right off the Montrose L, the perfect vegan donuts are steps away! We love the classic Strawberry Sprinkle, but follow their Instagram to see their daily specials!</p>
+          </div>
+          <div class="food-item">
+            <p>Superiority Burger</p>
+            <img src="./stickCpy/April copy/SBPP.png" alt="Superiority Burger">
+            <p>If you're lucky this Pearl Passionfruit Pie will be availible at Superiority Burger! Make sure you get their name sake burger and fries as well!</p>
+          </div>
+          <div class="food-item">
+            <p>Planta Queen</p>
+            <img src="./stickCpy/April copy/plantaQs.png" alt="Planta Queen">
+            <p>Planta Queen is dishing up some of the best vegan sushi in the city! If you can, try to make it to one of their Maki Monday's for unlimited rolls for $29 after 5pm!</p>
+          </div>
+          <div class="food-item">
+            <p>Bunna Cafe</p>
+            <img src="./stickCpy/April copy/Bunna.png" alt="Bunna Cafe">
+            <p>This vegan Ethiopian restaurant is serving up some of the best Beyaynetu in the city! Our favorite item to get was the Misir Wot!</p>
+          </div>
+          <div class="food-item">
+            <p>chloe.</p>
+            <img src="./stickCpy/April copy/Chloe.png" alt="chloe.">
+            <p>This giant vegan cinnamon roll can only be acquired on a weekend, so make haste and grab one! Make sure you also get a side of their butternut mac n cheese!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>May</h3>
+        <p>Asian & Latin Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Xi'an Famous Foods</p>
+            <img src="./stickCpy/May copy/XFF.png" alt="Xi'an Famous Foods">
+            <p>These long and chewy hand-pulled noodles have multiple locations in NYC! Adjust your spice level to your liking, but our favorite is the Pork "Zha Jiang" at the spiciest level!</p>
+          </div>
+          <div class="food-item">
+            <p>Son del North</p>
+            <img src="./stickCpy/May copy/SDN.png" alt="Son del North">
+            <p>This no rice burrito spot is one you should not miss. We love their torilla and their frijoles con queso with white beans!</p>
+          </div>
+          <div class="food-item">
+            <p>Chef Katsu Brooklyn</p>
+            <img src="./stickCpy/May copy/ChefKatsu.png" alt="Chef Katsu Brooklyn">
+            <p>If you find yourself in Brooklyn, it better be at Chef Katsu to get their Chicken Katsu Curry Bowl! Try out one of their delectable desserts as well!</p>
+          </div>
+          <div class="food-item">
+            <p>Tikal Mayan Food</p>
+            <img src="./stickCpy/May copy/Tikal.png" alt="Tikal Mayan Food">
+            <p>In the heart of Manhattan lies Tikal Mayan Food... get the Fried Red Snapper and get blown away!</p>
+          </div>
+          <div class="food-item">
+            <p>Luna Cafe & Bakery</p>
+            <img src="./stickCpy/May copy/bSesameBall.png" alt="Luna Cafe & Bakery">
+            <p>This may seem familiar if you remember February's Pumpkin Bun... the pastries are so cheap get yourself multiple! Including this Black Sesame filled Sesame Ball!</p>
+          </div>
+          <div class="food-item">
+            <p>Taqueria Ramirez</p>
+            <img src="./stickCpy/May copy/TRR.png" alt="Taqueria Ramirez">
+            <p>The perect day in Greenpoint includes a trip to Taqueria Ramirez! We recommend the Al Pastor loaded with all the toppings!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>June</h3>
+        <p>Across Oceans Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Roti Roll (Bombay Frankie)</p>
+            <img src="./stickCpy/June copy/Rotiroll.png" alt="Roti Roll (Bombay Frankie)">
+            <p>You cannot come to Roti Roll obviously without getting their Frankies, but you absolutely must come with a friend to split their Samosas! Hydrate yourself too with a Mango Lassi!</p>
+          </div>
+          <div class="food-item">
+            <p>Ten Ichi Mart</p>
+            <img src="./stickCpy/June copy/tensal.png" alt="Ten Ichi Mart">
+            <p>You'll be seeing a lot of Tenichi Mart here! We love their sushi.. especially their Salmon Nigiri!</p>
+          </div>
+          <div class="food-item">
+            <p>OKONOMI Brooklyn</p>
+            <img src="./stickCpy/June copy/Okonomi.png" alt="OKONOMI Brooklyn">
+            <p>Breakfast and Lunch?? Okonomi offers a traditional Japanese breakfast in the AM, and turns into a Ramen restaurant at 5:30pm! Whichever option you choose will surely delight!</p>
+          </div>
+          <div class="food-item">
+            <p>Larry's Ca Phe</p>
+            <img src="./stickCpy/June copy/Larry's.png" alt="Larry's Ca Phe">
+            <p>This Vietnamese cafe is serving up some of the best drinks and pastries in Brooklyn! Our favorite is Larry's Green... coconut water topped with a fluffy matcha cream!</p>
+          </div>
+          <div class="food-item">
+            <p>Ten Ichi Mart</p>
+            <img src="./stickCpy/June copy/tentuna.png" alt="Ten Ichi Mart">
+            <p>We're back! But this time with Tuna Nigiri!</p>
+          </div>
+          <div class="food-item">
+            <p>Nepali Momo Cafe</p>
+            <img src="./stickCpy/June copy/momocafe.png" alt="Nepali Momo Cafe">
+            <p>Find yourself the time to do a proper Momo crawl.. once you do you'll find that Nepali Momo Cafe is on the list! Make sure you try their Sel Roti that is crispy, savory, and served with a spicy dipping sauce!</p>
+          </div>
+        </div>
+      </div>
+  
+    <div class="month">
+        <h3>July</h3>
+        <p>Summer Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>The Commodore</p>
+            <img src="./stickCpy/July copy/TheCommodore.png" alt="The Commodore">
+            <p>On a hot summer month.. or any day of the year, get yourself a Frozen Mojito over at The Commodore! Goes great with their Nachos or Tuna Melt!</p>
+          </div>
+          <div class="food-item">
+            <p>L&B Spumoni Gardens</p>
+            <img src="./stickCpy/July copy/L&P.png" alt="L&B Spumoni Gardens">
+            <p>Come here for their pizza, stay for the ice cream! This classic soft serve goes great with their famous Sicilian pie!</p>
+          </div>
+          <div class="food-item">
+            <p>Morgenstern’s Finest Ice Cream</p>
+            <img src="./stickCpy/July copy/morgansterns.png" alt="Morgenstern’s Finest Ice Cream">
+            <p>With 50 flavors to choose from, everyone has something to love at Morganstern's! If you're feeling boozy, get one of their specialty shakes...</p>
+          </div>
+          <div class="food-item">
+            <p>Ray's Candy Store</p>
+            <img src="./stickCpy/July copy/rays.png" alt="Ray's Candy Store">
+            <p>Open 24 hours, and still run by Ray, this famous candy shop is home to some of the best Soft Serve in the city! Don't sleep on their Beignets or their Fried Oreos either!</p>
+          </div>
+          <div class="food-item">
+            <p>Dog Day Afternoon</p>
+            <img src="./stickCpy/July copy/DogD.png" alt="Dog Day Afternoon">
+            <p>With two locations in the city, Dog Day Afternoon is serving up delicious dogs! Ranging from Polish Kielbasa to Chicago to even Vegan dogs, this place serves up something for everyone!</p>
+          </div>
+          <div class="food-item">
+            <p>L&L Hawaiian Barbecue</p>
+            <img src="./stickCpy/July copy/L&L.png" alt="L&L Hawaiian Barbecue">
+            <p>L&L is dishing up some of the best Hawaiian BBQ in the city! We love the Lava Chicken Plate, but make sure you try their Spam Musubi as well!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>August</h3>
+        <p>Sandwich Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Saiguette</p>
+            <img src="./stickCpy/August copy/Saiguette.png" alt="Saiguette">
+            <p>If you find yourself on the Upper West Side, get yourself the best Bahn Mi in New York! The Grilled Lemongrass Pork Shoulder is our favorite! If you come here you also must order their BBQ Pork Bun and Laska!</p>
+          </div>
+          <div class="food-item">
+            <p>Evil Katsu</p>
+            <img src="./stickCpy/August copy/EvilKatsu.png" alt="Evil Katsu">
+            <p>In the heart of East Village, you will find Evil Katsu. Serving up one of the best Japanese  Sandos in the city, you must acquire their Chicken Katsu on the softest milk bread you will ever bite into!</p>
+          </div>
+          <div class="food-item">
+            <p>Emmy Squared Pizza</p>
+            <img src="./stickCpy/August copy/Emmy.png" alt="Emmy Squared Pizza">
+            <p>Don't be fooled by the name of Emmy Squared Pizza when I tell you that the best thing on the menu is the coveted Emmy Burger. Served on a pretzle bun with carmelized onions and Emmy sauce, you'll leave wanting more! Make sure to come early as they only make 25 a day!</p>
+          </div>
+          <div class="food-item">
+            <p>BK Jani</p>
+            <img src="./stickCpy/August copy/BKJ.png" alt="BK Jani">
+            <p>This Pakistani burger spot is serving up some of our favorite classics with flair! Their namesake burger is topped with mint chutney, raita, and a grilled tomato! A must order is a side of their addictive Masala Fries!</p>
+          </div>
+          <div class="food-item">
+            <p>S&P Lunch</p>
+            <img src="./stickCpy/August copy/S&P.png" alt="S&P Lunch">
+            <p>This classic lunch counter is home to the best Tuna Melt in the city! Sit down and order, and pay when you're done! If it's a cozy day, get yourself a nice bowl of Matzah Ball Soup as well!</p>
+          </div>
+          <div class="food-item">
+            <p>Salty Lunch Lady's Little Luncheonette</p>
+            <img src="./stickCpy/August copy/SaltyLL.png" alt="Salty Lunch Lady's Little Luncheonette">
+            <p>A hidden gem in Ridgewood lies one of the best veggie sandwiches. Salty Lunch Lady's Squash Me Sandwich holds roasted butternut squash, kale pesto, goat cheese ricotta, and a deliciously dressed radicchio! The menu changes daily, and they constantly rotate their desserts! Highly recommend a trip down!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>September</h3>
+        <p>Diner Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Three Decker Diner</p>
+            <img src="./stickCpy/September copy/Diner.png" alt="Three Decker Diner">
+            <p>Right off Nassau Ave you will find the coziest diner in NYC. Three Decker Diner has a menu large enough to satsify your entire party! We love everything on their menu, but you truly can never beat a classic milkshake to satisfy that sweet tooth!</p>
+          </div>
+          <div class="food-item">
+            <p>Agi's Counter</p>
+            <img src="./stickCpy/September copy/Agi's.png" alt="Agi's Counter">
+            <p>This Hungarian counter is home to one of the best slices of cheesecake in the city. Paired with olive oil and lemon, this rich and creamy dessert is not one to miss. For a lil extra, you can get it topped with their delicious blueberry compote!</p>
+          </div>
+          <div class="food-item">
+            <p>Thai Diner</p>
+            <img src="./stickCpy/September copy/ThaiDiner.png" alt="Thai Diner">
+            <p>Thai Diner is serving up one of the best takes on a breakfast sandwich. Their egg and cheese is accompanied with Sai Oua Herbal Sausage & Thai Basil all wrapped in their delicious Roti! Don't you dare forget to have a Thai Iced Tea to pair on the side!</p>
+          </div>
+          <div class="food-item">
+            <p>B&H Dairy</p>
+            <img src="./stickCpy/September copy/B&H.png" alt="B&H Dairy">
+            <p>One of the last kosher dairy counters in the city is home to the best cheap, late night eats! Of course you have to get their Tuna Melt on Challah, but do not skip out on their Latkes!</p>
+          </div>
+          <div class="food-item">
+            <p>Brooklyn Farmacy & Soda Fountain</p>
+            <img src="./stickCpy/September copy/BrooklynFarmacy.png" alt="Brooklyn Farmacy & Soda Fountain">
+            <p>This classic ice cream joint has one of our favorite Banana Splits in the city! They are known for their classic sodas and egg creams, but we could eat their Sundaes all day!</p>
+          </div>
+          <div class="food-item">
+            <p>Golden Diner</p>
+            <img src="./stickCpy/September copy/goldenDiner.png" alt="Golden Diner">
+            <p>Famous for thei giant fluffy pancakes, Golden Diner is a secret contender for one of our favorite Tuna Melts. Topped with a whole bag of Salt and Vinegar chips, this crunchy melt is not one to sleep on!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>October</h3>
+        <p>Hidden Deals Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Ten Ichi Mart</p>
+            <img src="./stickCpy/October copy/TenIchi.png" alt="Ten Ichi Mart">
+            <p>We are back at Ten Ichi! Not many people know that they also sell hot buns! Our favorite is undoubtly their Chicken Curry Bun! Order at the front and pick up in the back!</p>
+          </div>
+          <div class="food-item">
+            <p>Edy's Grocer</p>
+            <img src="./stickCpy/October copy/Edy's.png" alt="Edy's Grocer">
+            <p>Located in the heart of Greenpoint, Edy's Grocer is home to some of the best Lebanese staples for a great deal! We love grabbing their mezze, specifically their Chili Crisp Labneh or their Muhummara! </p>
+          </div>
+          <div class="food-item">
+            <p>Hindu Temple Canteen</p>
+            <img src="./stickCpy/October copy/TempleC.jpeg" alt="Hindu Temple Canteen">
+            <p>If you find yourself on a food crawl in Flushing... make the extra walk over to Hindu Temple Canteen! In the basement you will find some of the best South Indian snacks and quick bites! We recommend their weekend special of the Hyderabadi Masala Dosa and their Poori Masala! Don't leave without getting one of their Mango Lassi's, our favorite in the city!</p>
+          </div>
+          <div class="food-item">
+            <p>Ten Ichi Mart</p>
+            <img src="./stickCpy/October copy/Onigiri.png" alt="Ten Ichi Mart">
+            <p>Back again! Ten Ichi is also home to our favorite Onigiri in the city! After 8:00pm is their deal of all their fresh food 50% off! Come 15 minutes early as everything goes by then!</p>
+          </div>
+          <div class="food-item">
+            <p>Mama Yoshi Mini Mart</p>
+            <img src="./stickCpy/October copy/MamaYoshi.png" alt="Mama Yoshi Mini Mart">
+            <p>Located in Ridgewood, Mama Yoshi is known for their delicious Spicy Katsu Sando! The sleeper here is their Mac Salad! Get both and you will not be disappointed!</p>
+          </div>
+          <div class="food-item">
+            <p>Deluxe Food Market</p>
+            <img src="./stickCpy/October copy/DeluxeFM.png" alt="Deluxe Food Market">
+            <p>On Elizabeth Street, you will find one of the best deals in the city! Deluxe Food Market houses some of the best cheap eats, we recommend you get a bag of their Scallion Twist Buns and their Beef Chow Fun!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>November</h3>
+        <p>Family Style Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Birds of a Feather</p>
+            <img src="./stickCpy/November copy/BoaF.png" alt="Birds of a Feather">
+            <p>This Williamsburg restaurant is one of our favorite Family Style places! This classic Chinese restaurant is serving up large plates great for groups! We love their Pan Fried Pork Buns, but truly nothing on this menu is a miss!</p>
+          </div>
+          <div class="food-item">
+            <p>Bernie's</p>
+            <img src="./stickCpy/November copy/Bernies.png" alt="Bernie's">
+            <p>On the corner of Driggs and Lorimer is Bernie's! Right next to McCarren, this could not be anymore of a perfect spot for their delicious Brownie Sundae! Known for their large serving sizes and strong drinks, this is a crowd-pleasing spot!</p>
+          </div>
+          <div class="food-item">
+            <p>Ayat</p>
+            <img src="./stickCpy/November copy/ayat.png" alt="Ayat">
+            <p>This Palestinian spot is serving up the best authentic Middle Eastern favorites in NYC! We love everything from their Hummus to their Mansaf! Come with a large group and order one of everything!</p>
+          </div>
+          <div class="food-item">
+            <p>Chama Mama</p>
+            <img src="./stickCpy/November copy/ChamaMama.png" alt="Chama Mama">
+            <p>This Georgian staple has one of the best Khachapuri's in the city! The cheesy goodness is not only delicious, but a delightful experience! We love their Khinkali as well! </p>
+          </div>
+          <div class="food-item">
+            <p>212 East</p>
+            <img src="./stickCpy/November copy/212East.png" alt="212 East">
+            <p>This late night spot has some of the best cheap drinks in the city, as well as a food menu that ranges from Kimchi Fried Rice to Fish and Chips!</p>
+          </div>
+          <div class="food-item">
+            <p>Sappe</p>
+            <img src="./stickCpy/November copy/Sappe.png" alt="Sappe">
+            <p>From the sister restaurant of Soothr, Sappe is serving some of the best Thai in NYC! Besides the gorgeous interior, we love their Khao Soi and Mama E-La!</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="month">
+        <h3>December</h3>
+        <p>Comfort Food Month</p>
+        <div class="month-gallery">
+          <div class="food-item">
+            <p>Pierozek</p>
+            <img src="./stickCpy/December copy/Pierozek.png" alt="Pierozek">
+            <p>This quaint Polish restaurant is home to one of our favorite Pierogi's! From 9 flavors to choose from, you can have Pierogi's for lunch, dinner, and dessert! We love their Kielbasa dish that comes with traditional Polish Kielbasa, Three Pierogis of choice, served with red onion and pickles!</p>
+          </div>
+          <div class="food-item">
+            <p>Menkoi Sato</p>
+            <img src="./stickCpy/December copy/MenkoiSato.png" alt="Menkoi Sato">
+            <p>This West Village favorite has a deliciously simple menu with a chicken broth base to all their ramens! We love their Spicy Shoyu, but here there are no wrong choices!</p>
+          </div>
+          <div class="food-item">
+            <p>Frank</p>
+            <img src="./stickCpy/December copy/Franks.png" alt="Frank">
+            <p>This cash-only Italian joint is home to one of our favorite dishes in the city! We love everything here, but their Spaghetti Limone is one to look out for!</p>
+          </div>
+          <div class="food-item">
+            <p>Shuka</p>
+            <img src="./stickCpy/December copy/Shukette.png" alt="Shuka">
+            <p>Right off MacDougal, you will find some of the best Middle Eastern bites in NYC! We recommend their Beet Hummus, but we recommend coming with a large group and ordering everything! </p>
+          </div>
+          <div class="food-item">
+            <p>Yonah Schimmel's Knish Bakery</p>
+            <img src="./stickCpy/December copy/Knish.png" alt="Yonah Schimmel's Knish Bakery">
+            <p>This tiny Jewish bakery is whipping out the best Knishes, ranging from sweet to savory, Yonah Schimmel has over 15 flavors to choose from! We love their classic potato, but a delightful suprise was their Red Cabbage Knish! </p>
+          </div>
+          <div class="food-item">
+            <p>M Shanghai</p>
+            <img src="./stickCpy/December copy/MShanghai.png" alt="M Shanghai">
+            <p>This lowkey Williamsburg gem is dishing up one of our favorite soup dumplings in Brooklyn. We love everything from their Spicy Wontons to their Shanghai Style Lomein! </p>
+          </div>
+        </div>
+      </div>
+  </div> <!-- closes the themed months content -->
+  
+<!-- Second Tab -->
+    <div class="content">
+      <h2 style="text-align: center;">Explore the Months!</h2>
+      <div class="cover-image">
+        <img src="./KBSC copy/covtryBlue.png" alt="Cover of the Calendar">
+      </div>
+      
+<div class="scroll-gallery">
+  <img src="./KBSC copy/jan.png" alt="January">
+  <img src="./KBSC copy/feb.png" alt="February">
+  <img src="./KBSC copy/march.png" alt="March">
+  <img src="./KBSC copy/april.png" alt="April">
+  <img src="./KBSC copy/may.png" alt="May">
+  <img src="./KBSC copy/june.png" alt="June">
+  <img src="./KBSC copy/July.png" alt="July">
+  <img src="./KBSC copy/aug.png" alt="August">
+  <img src="./KBSC copy/sept.png" alt="September">
+  <img src="./KBSC copy/october.png" alt="October">
+  <img src="./KBSC copy/november.png" alt="November">
+  <img src="./KBSC copy/dec.png" alt="December">
+</div>
+    </div>
+    <div class="thank-you">
+        <p>Special thank you to the following:</p>
+        <p>Quinn Thomas (@quinnbriar): Photographer & Co-Designer</p>
+        <p>Natalie Foo (@iits_natalie): Production Assistant</p>
+        <p>Ifeoluwa Ibraheem (@ifeibraheem): Stylist</p>
+      </div>      
+
+    <div class="footer">Made with ❤️ by Krissy!</div>
+  </div>
+
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll(".tab");
+      const contents = document.querySelectorAll(".content");
+
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle("active", i === index);
+        contents[i].classList.toggle("active", i === index);
+      });
+    }
+  </script>
+
+</body>
+</html>
